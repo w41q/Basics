@@ -3,9 +3,11 @@ import java.util.PriorityQueue;
 
 class medianOfIntStream
 {
+	// Reference: http://www.geeksforgeeks.org/median-of-stream-of-integers-running-integers/
 	private static PriorityQueue<Integer> less = new PriorityQueue<Integer>(Collections.reverseOrder());
 	private static PriorityQueue<Integer> big = new PriorityQueue<Integer>();
 	private static double median = 0;
+	
 	public static void main(String[] argv)
 	{
 		int[] stream = {5, 15, 1, 3};
