@@ -59,29 +59,29 @@ public class quickselect
 	{
 		int begin = 0, end = nums.length-1;
 		k = nums.length-k;
-        while(begin<end)
-        {
-            int left = begin, right = end;
-            int val = nums[(left+right)/2];
-            while(left<right)
-            {
-                if(nums[left]>=val)
-                {
-                    int tmp = nums[left];
-                    nums[left] = nums[right];
-                    nums[right] = tmp;
-                    right--;
-                }
-                else
-                    left++;
-            }
-            if(nums[left]>val)
-                left--;
-            if(k<=left)
-                end = left;
-            else
-                begin = left+1;
-        }
-        return nums[k];
+		while(begin<end)
+		{
+			int left = begin, right = end;
+			int val = nums[(left+right)/2];
+			while(left<right)
+			{
+				if(nums[left]>=val)
+				{
+					int tmp = nums[left];
+					nums[left] = nums[right];
+					nums[right] = tmp;
+					right--;
+				}
+				else
+					left++;
+			}
+			if(nums[left]>val)
+				left--;
+			if(k<=left)
+				end = left;
+			else
+				begin = left+1;
+		}
+		return nums[k];
 	}
 }
