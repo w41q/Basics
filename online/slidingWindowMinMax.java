@@ -66,4 +66,27 @@ class slidingWindowMinMax
 		result[result.length-1] = a[q.peekFirst()];
 		return result;
 	}
+	
+	// Stack: Wrong solution
+	// 5 3 3 2, k = 3 ==> 5 2 (Correct: 5 3)
+	public static int[] max2(int[] a, int k)
+	{
+		int[] result = new int[a.length-k+1];
+		Stack<Integer> st = new Stack<Integer>();
+		for(int i=0;i<k;i++)
+		{
+			if(st.isEmpty() || a[i]>=st.peek())
+				st.push(a[i]);
+		}
+		for(int i=k;i<a.length;i++)
+		{
+			result[i-k] = st.peek();
+			if(a[i-k]==st.peek())
+				st.pop();
+			if(st.isEmpty() || a[i]>=st.peek())
+				st.push(a[i]);
+		}
+		result[result.length-1] = a[st.peek()];
+		return result;
+	}
 }
