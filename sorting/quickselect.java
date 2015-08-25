@@ -54,10 +54,11 @@ public class quickselect
 		return next;
 	}
 	
+	// Reference: http://blog.teamleadnet.com/2012/07/quick-select-algorithm-find-kth-element.html
 	public static int qs2(int[] nums, int k)
 	{
 		int begin = 0, end = nums.length-1;
-        k = nums.length-k;
+		k = nums.length-k;
         while(begin<end)
         {
             int left = begin, right = end;
@@ -76,7 +77,7 @@ public class quickselect
             }
             if(nums[left]>val)
                 left--;
-            if(k<left)
+            if(k<=left)
                 end = left;
             else
                 begin = left+1;
