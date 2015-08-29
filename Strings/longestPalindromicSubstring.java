@@ -22,9 +22,9 @@ public class longestPalindromicSubstring
 		p[0] = 0;
 		for(int i=0;i<p.length;i++)
 		{
-			int l = 2*c-r;
+			int l = 2*c-i;
 			p[i] = r<=i?0:Math.min(r-i, p[l]);
-			while(i+1+p[i]<p.length && i-1-p[i]>=0 && cha[i+1+p[i]]==cha[i-1-p[i]])
+			while(i+p[i]+1<p.length && i-p[i]-1>=0 && cha[i+p[i]+1]==cha[i-p[i]-1])
 				p[i]++;
 			if(i+p[i]>r)
 			{
