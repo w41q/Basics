@@ -1,3 +1,4 @@
+// http://www.geeksforgeeks.org/find-two-rectangles-overlap/
 class rectangleOverlap
 {
 	public static void main(String[] args)
@@ -9,8 +10,10 @@ class rectangleOverlap
 	
 	public static boolean overlap(Point l1, Point r1, Point l2, Point r2)
 	{
+		// Left or Right
 		if(l1.x>r2.x || l2.x>r1.x)
 			return false;
+		// Up or Down
 		if(l1.y<r2.y || l2.y<r1.y)
 			return false;
 		return true;
